@@ -21,3 +21,5 @@ sudo apt-get $UNATTENDED install \
   libpng-dev                     \
   libjpeg-dev                    \
   libxml2-dev                    \
+  libtiff-dev                    \
+  libopenjp2-7-dev

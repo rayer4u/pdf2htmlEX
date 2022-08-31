@@ -14,8 +14,8 @@ echo ""
 
 set -ev
 
-sudo apt-get update
-sudo apt-get $UNATTENDED install \
+apt-get update
+apt-get $UNATTENDED install \
   sudo                           \
   wget                           \
   git                            \
@@ -25,11 +25,14 @@ sudo apt-get $UNATTENDED install \
   libtool                        \
   cmake                          \
   make                           \
-  gcc                            \
-  g++                            \
+  gcc-9                          \
+  g++-9                          \
   dpkg                           \
   dpkg-dev                       \
   gettext                        \
   openjdk-8-jre-headless         \
+  libopenjp2-7-dev               \
   jq
 
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 100 --slave /usr/bin/g++ g++ /usr/bin/g++-9
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 90 --slave /usr/bin/g++ g++ /usr/bin/g++-12
