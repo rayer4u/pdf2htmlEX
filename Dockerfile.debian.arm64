@@ -1,0 +1,38 @@
+# 构建
+FROM arm64v8/debian:bullseye
+
+RUN sed -i 's/deb.debian.org/mirrors.huaweicloud.com/g' /etc/apt/sources.list
+RUN echo 'deb http://mirrors.huaweicloud.com/debian sid main' >> /etc/apt/sources.list
+
+RUN  mkdir /tmp/aaa
+
+WORKDIR /tmp/aaa
+
+ENV UNATTENDED="--assume-yes"
+ENV MAKE_PARALLEL="-j 4"
+ENV PDF2HTMLEX_BRANCH="master"
+ENV PDF2HTMLEX_PREFIX=/usr/local
+ENV DEBIAN_FRONTEND=noninteractive
+
+COPY .git/       .git/
+COPY buildScripts/  buildScripts/
+
+RUN ./buildScripts/versionEnvs
+
+RUN ./buildScripts/reportEnvs
+
+RUN ./buildScripts/getBuildToolsApt
+
+RUN ./buildScripts/getDevLibrariesApt
+
+RUN ./buildScripts/getPoppler
+
+RUN ./buildScripts/getFontforge
+
+RUN ./buildScripts/buildPoppler
+
+RUN ./buildScripts/buildFontforge
+
+COPY .  .
+RUN ./buildScripts/buildPdf2htmlEX
+RUN ./buildScripts/installPdf2htmlEX
