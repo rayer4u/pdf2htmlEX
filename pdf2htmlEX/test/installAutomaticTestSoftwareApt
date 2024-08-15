@@ -16,16 +16,16 @@ sudo apt -y install \
   python3           \
   python3-pip       \
   xvfb              \
-  firefox
+  firefox-esr
 
 # Now get the geckodriver for firefox (as required by selenium)
 #
 oldPWD=$(pwd)
 cd /tmp
 #
-wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
+wget https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
 #
-tar xvf geckodriver-v0.26.0-linux64.tar.gz
+tar xvf geckodriver-v0.35.0-linux64.tar.gz
 #
 sudo mv geckodriver /usr/local/bin
 #
