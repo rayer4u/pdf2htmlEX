@@ -3,13 +3,21 @@ proof参数可以观察到图片里的文字和div的文字渲染不同，不能
 At the moment clipping has been broken 
 and needs to be fixed
 
-
-docker buildx build . --platform arm64 -f Dockerfile.debian -t pdf2htmlex:arm64
-docker run --name pdf2htmlex --rm -it pdf2htmlex:arm64 bash
-docker exec -it pdf2htmlex bash
-./buildScripts/createDebianPackage
+## amd64
+docker buildx build . --platform amd64 -f Dockerfile.debian -t pdf2htmlex
+docker run -d --name pdf2htmlex --rm -it pdf2htmlex bash
+docker exec -it pdf2htmlex ./buildScripts/createDebianPackage
 docker exec pdf2htmlex ls /tmp/aaa/imageBuild/
-docker cp pdf2htmlex:/tmp/aaa/imageBuild/pdf2htmlEX-0.18.8.rc2-master-20250423-debian-11-aarch64.deb .
+docker cp pdf2htmlex:/tmp/aaa/imageBuild/pdf2htmlEX-0.18.8.rc2-master-20250423-debian-12-x86_64.deb .
+docker stop pdf2htmlex
+
+## arm64
+docker buildx build . --platform arm64 -f Dockerfile.debian -t pdf2htmlex:arm64
+docker run -d --name pdf2htmlex --rm -it pdf2htmlex:arm64 bash
+docker exec -it pdf2htmlex ./buildScripts/createDebianPackage
+docker exec pdf2htmlex ls /tmp/aaa/imageBuild/
+docker cp pdf2htmlex:/tmp/aaa/imageBuild/pdf2htmlEX-0.18.8.rc2-master-20250423-debian-12-aarch64.deb .
+docker stop pdf2htmlex
 
 
 Redesign textline
