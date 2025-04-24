@@ -1,7 +1,7 @@
 # 构建
-FROM debian:bullseye
+FROM debian:bookworm
 
-RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+#RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 #RUN echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian sid main' >> /etc/apt/sources.list
 
 RUN  mkdir /tmp/aaa

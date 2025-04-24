@@ -1,3 +1,17 @@
+clip有问题，导致图文覆盖场景，文字显示不正确，暂时用--fallback --proof解决
+proof参数可以观察到图片里的文字和div的文字渲染不同，不能完全覆盖
+At the moment clipping has been broken 
+and needs to be fixed
+
+
+docker buildx build . --platform arm64 -f Dockerfile.debian -t pdf2htmlex:arm64
+docker run --name pdf2htmlex --rm -it pdf2htmlex:arm64 bash
+docker exec -it pdf2htmlex bash
+./buildScripts/createDebianPackage
+docker exec pdf2htmlex ls /tmp/aaa/imageBuild/
+docker cp pdf2htmlex:/tmp/aaa/imageBuild/pdf2htmlEX-0.18.8.rc2-master-20250423-debian-11-aarch64.deb .
+
+
 Redesign textline
 
 save width in Textline, create new <div> in the middle
