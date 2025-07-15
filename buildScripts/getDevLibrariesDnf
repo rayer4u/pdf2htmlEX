@@ -20,4 +20,6 @@ sudo dnf $UNATTENDED install \
   cairo-devel                \
   libpng-devel               \
   libjpeg-turbo-devel        \
+  libtiff-devel              \
+  openjpeg2-devel            \
   libxml2-devel
