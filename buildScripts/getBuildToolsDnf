@@ -15,7 +15,7 @@ echo ""
 
 set -ev
 
-sudo dnf $UNATTENDED install  \
+dnf $UNATTENDED install  \
   sudo                        \
   wget                        \
   git                         \
@@ -26,9 +26,9 @@ sudo dnf $UNATTENDED install  \
   cmake                       \
   make                        \
   gcc                         \
-  g++                         \
+  gcc-c++                     \
   dpkg                        \
-  dpkg-dev                    \
+  dpkg-devel                  \
   gettext                     \
   java-1.8.0-openjdk-headless \
   jq

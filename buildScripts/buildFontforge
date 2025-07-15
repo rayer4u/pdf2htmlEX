@@ -34,7 +34,7 @@ cmake        		                        \
   -DENABLE_LIBJPEG:AUTO=ON                  \
   -DENABLE_LIBPNG:AUTO=ON                   \
   -DENABLE_LIBREADLINE:AUTO=OFF             \
-  -DENABLE_LIBTIFF:AUTO=OFF                 \
+  -DENABLE_LIBTIFF:AUTO=ON                  \
   -DENABLE_WOFF2:AUTO=OFF                   \
   -DENABLE_DOCS:AUTO=OFF                    \
   -DENABLE_CODE_COVERAGE:BOOL=OFF           \

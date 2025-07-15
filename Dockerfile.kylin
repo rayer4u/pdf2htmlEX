@@ -1,0 +1,39 @@
+# pdf2htmlEX里的代码需要回退到1d3e577440，kylin不支持c++17, poppler等需要回退版本
+# 其他代码需要最新😅🤣
+FROM hxsoong/kylin:v10-sp3
+
+#RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+#RUN echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian sid main' >> /etc/apt/sources.list
+
+RUN  mkdir /tmp/aaa
+
+WORKDIR /tmp/aaa
+
+ENV UNATTENDED="--assumeyes"
+ENV MAKE_PARALLEL="-j 4"
+ENV PDF2HTMLEX_BRANCH="master"
+ENV PDF2HTMLEX_PREFIX=/usr/local
+
+
+COPY .git/       .git/
+COPY buildScripts/  buildScripts/
+
+RUN ./buildScripts/versionEnvs
+
+RUN ./buildScripts/reportEnvs
+
+RUN ./buildScripts/getBuildToolsDnf
+
+RUN ./buildScripts/getDevLibrariesDnf
+
+RUN ./buildScripts/getPoppler
+
+RUN ./buildScripts/getFontforge
+
+RUN ./buildScripts/buildPoppler
+
+RUN ./buildScripts/buildFontforge
+
+COPY .  .
+RUN ./buildScripts/buildPdf2htmlEX
+RUN ./buildScripts/installPdf2htmlEX
