@@ -1,3 +1,5 @@
+kylin v10基础镜像的pdf2htmlex编译环境，用来编译arm64版本的pdf2htmlex。因为内置gcc版本过低，不能编译poppler23+的版本，需要回退代码。镜像在amd64的系统上模拟运行，部分pdf格式会异常(可能与jpg本地解码或者pdf1.5相关），arm64真机无问题。因为以debian arm64镜像为基础无此问题，只能认为是kylin v10镜像的兼容性问题
+
 Redesign textline
 
 save width in Textline, create new <div> in the middle
