@@ -37,4 +37,4 @@ COPY .  .
 RUN ./buildScripts/buildPdf2htmlEX
 RUN ./buildScripts/installPdf2htmlEX
 
-RUN ./createDebianPackage
+RUN ./buildScripts/createDebianPackage
