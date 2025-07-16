@@ -32,6 +32,18 @@ std::unique_ptr<BackgroundRenderer> BackgroundRenderer::getBackgroundRenderer(co
         return std::unique_ptr<BackgroundRenderer>(new SplashBackgroundRenderer(format, html_renderer, param));
     }
 #endif
+#ifdef ENABLE_LIBOPENJPEG
+    if (format == "jp2")
+    {
+        return std::unique_ptr<BackgroundRenderer>(new CairoBackgroundRenderer(html_renderer, param));
+    }
+#endif
+#ifdef ENABLE_LIBTIFF
+    if (format == "tiff")
+    {
+        return std::unique_ptr<BackgroundRenderer>(new CairoBackgroundRenderer(html_renderer, param));
+    }
+#endif
 #if ENABLE_SVG
     if (format == "svg")
     {

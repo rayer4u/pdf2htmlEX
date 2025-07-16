@@ -173,6 +173,12 @@ void setupSignalHandler(
 #ifdef ENABLE_LIBJPEG
   detailInfo = detailInfo + " jpg";
 #endif
+#ifdef ENABLE_LIBOPENJPEG
+  detailInfo = detailInfo + " jp2";
+#endif
+#ifdef ENABLE_LIBTIFF
+  detailInfo = detailInfo + " tiff";
+#endif
 #if ENABLE_SVG
   detailInfo = detailInfo + " svg";
 #endif

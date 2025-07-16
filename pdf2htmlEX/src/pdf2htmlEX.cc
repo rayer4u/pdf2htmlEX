@@ -76,6 +76,11 @@ void show_version_and_exit(const char * dummy = nullptr)
 #ifdef ENABLE_LIBJPEG
     cerr << " jpg";
 #endif
+#ifdef ENABLE_LIBOPENJPEG
+    cerr << " jp2";
+#endif
+#ifdef ENABLE_LIBTIFF
+    cerr << " tiff";
 #if ENABLE_SVG
     cerr << " svg";
 #endif
