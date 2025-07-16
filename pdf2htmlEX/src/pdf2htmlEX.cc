@@ -81,6 +81,7 @@ void show_version_and_exit(const char * dummy = nullptr)
 #endif
 #ifdef ENABLE_LIBTIFF
     cerr << " tiff";
+#endif
 #if ENABLE_SVG
     cerr << " svg";
 #endif
